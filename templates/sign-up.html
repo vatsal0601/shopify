@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Register</title>
+		<link rel="shortcut icon" href="../assets/Logo.svg" type="image/x-icon" />
+		<link rel="icon" href="../assets/Logo.svg" type="image/x-icon" />
+		<link rel="stylesheet" href="../dist/assets/index.f351cb3f.css" />
+		<script src="./signUp.js" defer></script>
+	</head>
+	<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+		<form
+			onsubmit="return validateSignUp()"
+			action="../index.html"
+			method="POST"
+			class="space-y-5 w-11/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+			novalidate
+		>
+			<h1 class="text-3xl font-semibold text-center pb-10">Register for your new account</h1>
+			<div>
+				<label for="name" class="font-medium mb-2"
+					>Name <span class="font-medium text-red-600 ml-2 mb-2 name-error"></span
+				></label>
+				<input
+					type="text"
+					placeholder="Your Name"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg name"
+				/>
+			</div>
+			<div>
+				<label for="email" class="font-medium mb-2"
+					>Email <span class="font-medium text-red-600 ml-2 mb-2 email-error"></span
+				></label>
+				<input
+					type="email"
+					placeholder="Your Email"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg email"
+				/>
+			</div>
+			<div>
+				<label for="password" class="font-medium mb-2"
+					>Password <span class="font-medium text-red-600 ml-2 mb-2 password-error"></span
+				></label>
+				<input
+					type="password"
+					placeholder="Your Password"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg password"
+				/>
+			</div>
+			<div>
+				<label for="password" class="font-medium mb-2"
+					>Re-Password <span class="font-medium text-red-600 ml-2 mb-2 re-password-error"></span
+				></label>
+				<input
+					type="password"
+					placeholder="Your Re-Password"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg re-password"
+				/>
+			</div>
+			<button
+				class="bg-blue-500 hover:bg-blue-700 transition-colors focus:outline-none text-white font-semibold uppercase py-3 w-full rounded-md shadow-lg"
+			>
+				Register
+			</button>
+			<p class="text-gray-700 text-center">
+				Already have an account?
+				<a href="./sign-in.html" class="text-blue-700 font-semibold hover:underline">LogIn </a>
+			</p>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign-In</title>
+		<link rel="shortcut icon" href="../assets/Logo.svg" type="image/x-icon" />
+		<link rel="icon" href="../assets/Logo.svg" type="image/x-icon" />
+		<link rel="stylesheet" href="../dist/assets/index.f351cb3f.css" />
+		<script src="./signIn.js" defer></script>
+	</head>
+	<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+		<form
+			onsubmit="return validateSignIn()"
+			action="../index.html"
+			method="POST"
+			class="space-y-5 w-11/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+			novalidate
+		>
+			<h1 class="text-3xl font-semibold text-center pb-10">LogIn to your account</h1>
+			<h1 class="text-xl text-red-600 font-semibold text-center pb-1 hidden invalid-login">
+				Invalid Credentials!
+			</h1>
+			<div>
+				<label for="email" class="font-medium mb-2"
+					>Email <span class="font-medium text-red-600 ml-2 mb-2 email-error"></span
+				></label>
+				<input
+					type="email"
+					placeholder="Your Email"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg email"
+				/>
+			</div>
+			<div>
+				<label for="password" class="font-medium mb-2"
+					>Password <span class="font-medium text-red-600 ml-2 mb-2 password-error"></span
+				></label>
+				<input
+					type="password"
+					placeholder="Your Password"
+					class="bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-blue-700 placeholder-gray-600 focus:placeholder-gray-400 transition-all px-4 py-3 w-full rounded-md shadow-lg password"
+				/>
+			</div>
+			<label class="inline-flex items-center">
+				<input type="checkbox" class="h-4 w-4 text-blue-600 checkbox" checked /><span
+					class="ml-2 text-gray-700"
+					>Remember me</span
+				>
+			</label>
+			<button
+				class="bg-blue-500 hover:bg-blue-700 transition-colors focus:outline-none text-white font-semibold uppercase py-3 w-full rounded-md shadow-lg"
+			>
+				LogIn
+			</button>
+			<p class="text-gray-700 text-center">
+				Don't have and account?
+				<a href="./sign-up.html" class="text-blue-700 font-semibold hover:underline">Register</a>
+			</p>
+		</form>
+	</body>
+</html>

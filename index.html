@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Shopify</title>
+		<link rel="shortcut icon" href="assets/Logo.svg" type="image/x-icon" />
+		<link rel="icon" href="assets/Logo.svg" type="image/x-icon" />
+		<style>
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			input[type="number"] {
+				-moz-appearance: textfield;
+			}
+			.background {
+				background-image: url("./assets/Hero.jfif");
+				background-color: rgba(0, 0, 0, 0.7);
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-blend-mode: multiply;
+				height: 50vh;
+			}
+		</style>
+		<link rel="stylesheet" href="./dist/assets/index.f351cb3f.css" />
+		<script src="index.js" defer></script>
+	</head>
+	<body class="bg-gray-100 relative overflow-x-hidden">
+		<header class="bg-white shadow-md">
+			<nav class="container mx-auto py-3 px-5 md:px-10 flex items-center justify-between">
+				<div class="flex items-center justify-center gap-2">
+					<img src="assets/Logo.svg" alt="Logo" class="w-8 h-8 md:w-10 md:h-10" />
+					<h1 class="text-xl md:text-2xl text-blue-700 uppercase font-bold hover:underline">
+						<a href="/">Shopify</a>
+					</h1>
+				</div>
+				<ul
+					class="bg-white fixed top-0 right-0 transform translate-x-full md:translate-x-0 md:relative w-full md:w-max h-screen md:h-full flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-5 z-50 md:flex transition-transform nav__links"
+				>
+					<li>
+						<a
+							href="#"
+							class="text-md md:text-base font-semibold text-gray-500 hover:text-gray-700 transition-colors py-2 rounded-full"
+							>GitHub</a
+						>
+					</li>
+					<li>
+						<p class="text-md md:text-base italic hidden logged-in"></p>
+					</li>
+					<li>
+						<button
+							onclick="logout()"
+							class="text-md md:text-base font-semibold text-white bg-blue-500 hover:bg-blue-700 transition-colors px-5 py-2 focus:outline-none rounded-full hidden logged-in"
+						>
+							Logout
+						</button>
+					</li>
+					<li>
+						<a
+							href="./templates/sign-in.html"
+							class="text-md md:text-base font-semibold bg-blue-200 hover:bg-blue-300 transition-colors px-5 py-2 rounded-full not-logged-in"
+							>LogIn</a
+						>
+					</li>
+					<li>
+						<a
+							href="./templates/sign-up.html"
+							class="text-md md:text-base font-semibold text-white bg-blue-500 hover:bg-blue-700 transition-colors px-5 py-2 rounded-full not-logged-in"
+							>Register</a
+						>
+					</li>
+				</ul>
+				<div class="block md:hidden space-y-1 cursor-pointer z-50 nav__burger">
+					<div class="w-7 h-1 bg-blue-700 rounded transition-transform line1"></div>
+					<div class="w-7 h-1 bg-gray-500 rounded line2"></div>
+					<div class="w-7 h-1 bg-blue-500 rounded transition-transform line3"></div>
+				</div>
+			</nav>
+		</header>
+		<div class="text-xl text-red-600 font-bold text-center my-3 hidden error">
+			Failed to load resources
+		</div>
+		<div class="flex items-center justify-center background">
+			<div class="text-center space-y-2">
+				<h1 class="text-5xl md:text-6xl xl:text-7xl text-white font-semibold uppercase">Shopify</h1>
+				<p class="text-lg md:text-xl xl:text-2xl text-gray-300">A few clicks is all it takes.</p>
+			</div>
+		</div>
+		<main class="min-h-screen container mx-auto pb-20 py-10 px-5 md:px-10 space-y-10">
+			<div class="space-y-3">
+				<h1 class="text-2xl xl:text-3xl font-bold uppercase">Categories</h1>
+				<div class="flex flex-wrap items-center gap-2 categories"></div>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 products"></div>
+			<div class="space-y-3">
+				<h1 class="text-2xl xl:text-3xl font-bold uppercase">Cart</h1>
+				<div class="space-y-3 cart-container"></div>
+			</div>
+			<div class="flex items-center justify-end gap-5 border-t-2 border-gray-500 pt-3 pr-5">
+				<button
+					onclick="placeOrder()"
+					class="bg-blue-500 hover:bg-blue-700 transition-colors focus:outline-none text-lg xl:text-xl text-white font-semibold px-2 py-1 rounded-md shadow-lg"
+				>
+					Place Order
+				</button>
+				<p class="font-semibold text-lg xl:text-xl text-blue-700 total">Total: $0.00</p>
+			</div>
+		</main>
+		<footer class="w-full absolute bottom-0 bg-white py-3 text-center">
+			<p class="md:text-lg">
+				&#169; 2021 <span class="font-semibold text-blue-700 uppercase">Shopify</span>. All rights
+				reserved.
+			</p>
+		</footer>
+	</body>
+</html>
