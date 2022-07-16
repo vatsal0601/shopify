@@ -66,38 +66,34 @@ const fetchData = async () => {
 };
 
 const productMarkup = (allProducts, id, category, title, image, price, description) => {
-	return `
-	<div class="bg-white p-3 space-y-5 shadow-lg rounded-md">
-		<img src="${image}" alt="Image" class="max-h-80 mx-auto rounded-md" />
-		${
-			allProducts
+	return /* HTML */ `
+		<div class="bg-white p-3 space-y-5 shadow-lg rounded-md">
+			<img src="${image}" alt="Image" class="max-h-80 mx-auto rounded-md" />
+			${allProducts
 				? `<p class="text-sm xl:text-base italic text-gray-500">Category: ${category}</p>`
-				: ``
-		}
-		<div class="space-y-3">
-			<h2 class="font-semibold text-lg xl:text-xl text-blue-700">${title}</h2>
-			<div class="flex items-center justify-between">
-				<p class="hidden">${id}</p>
-				<p class="xl:text-lg text-gray-700">Price: $${price}</p>
-				${
-					isPresentInCart(id)
+				: ``}
+			<div class="space-y-3">
+				<h2 class="font-semibold text-lg xl:text-xl text-blue-700">${title}</h2>
+				<div class="flex items-center justify-between">
+					<p class="hidden">${id}</p>
+					<p class="xl:text-lg text-gray-700">Price: $${price}</p>
+					${isPresentInCart(id)
 						? `<button
-					class="bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center gap-1 focus:outline-none text-sm xl:text-base font-semibold 
+					class="bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center gap-1 focus:outline-none text-sm xl:text-base font-semibold
 					px-2 py-1 rounded-md product-button"
 					>
 					<img src="assets/Tick.svg" alt="cart" class="w-4 xl:w-5 h-4 xl:h-5" /> Added to cart!
 					</button>`
 						: `<button
-					class="bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center gap-1 focus:outline-none text-sm xl:text-base font-semibold 
+					class="bg-gray-200 hover:bg-gray-300 transition-colors flex items-center justify-center gap-1 focus:outline-none text-sm xl:text-base font-semibold
 					px-2 py-1 rounded-md product-button"
 					>
 					<img src="assets/Cart.svg" alt="cart" class="w-4 xl:w-5 h-4 xl:h-5" /> Add to cart
-					</button>`
-				}
+					</button>`}
+				</div>
+				<p class="xl:text-lg text-gray-500">${description}</p>
 			</div>
-			<p class="xl:text-lg text-gray-500">${description}</p>
 		</div>
-	</div>
 	`;
 };
 
@@ -138,8 +134,12 @@ const addCategories = (data) => {
 	categories.splice(0, 0, "All");
 	const categoryElement = document.querySelector(".categories");
 	for (i in categories) {
-		categoryElement.innerHTML += `
-		<p class="bg-white xl:text-lg px-3 py-1 rounded-md shadow-lg transition-all cursor-pointer category">${categories[i]}</p>
+		categoryElement.innerHTML += /* HTML */ `
+			<p
+				class="bg-white xl:text-lg px-3 py-1 rounded-md shadow-lg transition-all cursor-pointer category"
+			>
+				${categories[i]}
+			</p>
 		`;
 	}
 };
@@ -193,38 +193,38 @@ const selectProduct = (data) => {
 
 const addToCart = (product) => {
 	const cartContainer = document.querySelector(".cart-container");
-	cartContainer.innerHTML += `
-	<div
-		class="bg-white flex flex-col sm:flex-row items-start gap-3 sm:items-center sm:justify-between p-3 shadow-lg rounded-md cart"
-	>
-		<div class="flex items-center justify-center gap-3">
-			<img
-				src="${product.image}"
-				alt="cart-image"
-				class="max-h-20 xl:max-h-24 mx-auto rounded-md"
-			/>
-			<div>
-				<h2 class="font-semibold text-lg xl:text-xl">${product.title}</h2>
-				<p class="text-gray-500 xl:text-lg">$${product.price}</p>
+	cartContainer.innerHTML += /* HTML */ `
+		<div
+			class="bg-white flex flex-col sm:flex-row items-start gap-3 sm:items-center sm:justify-between p-3 shadow-lg rounded-md cart"
+		>
+			<div class="flex items-center justify-center gap-3">
+				<img
+					src="${product.image}"
+					alt="cart-image"
+					class="max-h-20 xl:max-h-24 mx-auto rounded-md"
+				/>
+				<div>
+					<h2 class="font-semibold text-lg xl:text-xl">${product.title}</h2>
+					<p class="text-gray-500 xl:text-lg">$${product.price}</p>
+				</div>
+			</div>
+			<div class="flex items-center justify-center gap-3">
+				<p class="hidden">${product.id}</p>
+				<label for="quantity" class="text-sm xl:text-base"
+					>Quantity:
+					<input
+						type="number"
+						name="quantity"
+						value="1"
+						class="border border-gray-300 p-1 ml-1 focus:outline-none rounded-md quantity"
+				/></label>
+				<button
+					class="bg-red-600 hover:bg-red-700 text-white xl:text-lg font-semibold px-2 py-1 focus:outline-none rounded-md remove-button"
+				>
+					Remove
+				</button>
 			</div>
 		</div>
-		<div class="flex items-center justify-center gap-3">
-			<p class="hidden">${product.id}</p>
-			<label for="quantity" class="text-sm xl:text-base"
-				>Quantity:
-				<input
-					type="number"
-					name="quantity"
-					value = 1
-					class="border border-gray-300 p-1 ml-1 focus:outline-none rounded-md quantity"
-			/></label>
-			<button
-				class="bg-red-600 hover:bg-red-700 text-white xl:text-lg font-semibold px-2 py-1 focus:outline-none rounded-md remove-button"
-			>
-				Remove
-			</button>
-		</div>
-	</div>
 	`;
 	updateTotal();
 };
